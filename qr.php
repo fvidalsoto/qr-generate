@@ -6,7 +6,7 @@
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Subir archivo (excel)</label>
                     <input class="form-control" type="file" name="file_points" id="file_points" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
-                    <a class="btn btn-success mt-3" href="./Template.xlsx" download="Template.xlsx">Template Puntos</a>
+                    <a class="btn btn-success mt-3" href="./Template.xlsx" download="Template.xlsx">Template Puntos &nbsp; <span class="oi" data-glyph="data-transfer-download"></span></a>
                 </div>
 
                 <div class="grid-opciones">
