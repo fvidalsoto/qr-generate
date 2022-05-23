@@ -1,0 +1,17 @@
+{
+    "name": "fvida/capex",
+    "autoload": {
+        "psr-4": {
+            "Fvida\\Capex\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felipe Andres Vidal Soto",
+            "email": "felipeavidalsoto@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.23"
+    }
+}

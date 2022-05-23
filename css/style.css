@@ -1,0 +1,65 @@
+body {
+  background: #007bff;
+  background: linear-gradient(-117deg, #3f3f3f 0%, #a4a3a3 100%);
+  position: relative;
+}
+
+.login {
+  height: 100vh;
+  display: grid;
+  align-content: center;
+}
+
+.card {
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.logo-capsa {
+  max-width: 5rem;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  background-color: #3f3f3f;
+  border: #3f3f3f;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #a4a3a3;
+  border: #a4a3a3;
+  color: #000;
+}
+
+.input-group-text {
+  width: 3rem;
+  justify-content: center;
+}
+
+input:focus {
+  box-shadow: unset !important;
+  border-color: #2f3856 !important;
+}
+
+.version {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+}
+
+.grid-opciones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.btn-generar {
+  display: flex;
+  margin: 1.5rem auto 0 auto;
+  padding-inline: 3rem;
+  text-transform: uppercase;
+}
