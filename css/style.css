@@ -2,6 +2,7 @@ body {
   background: #007bff;
   background: linear-gradient(-117deg, #3f3f3f 0%, #a4a3a3 100%);
   position: relative;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .login {
@@ -59,6 +60,12 @@ input:focus {
 
 .btn-generar {
   display: flex;
+  margin: 1.5rem auto 0 auto;
+  padding-inline: 3rem;
+  text-transform: uppercase;
+}
+
+.btn-descargar {
   margin: 1.5rem auto 0 auto;
   padding-inline: 3rem;
   text-transform: uppercase;
