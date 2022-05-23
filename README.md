@@ -5,3 +5,4 @@ Generar códigos QR a partir de un listado en excel compuesto por el nombre del 
 Librerias utilizadas:
 - https://phpspreadsheet.readthedocs.io/en/latest/
 - http://phpqrcode.sourceforge.net/
+- https://useiconic.com/open
