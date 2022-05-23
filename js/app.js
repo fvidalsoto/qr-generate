@@ -17,6 +17,26 @@ formQR.addEventListener('submit', function (e) {
     processData: false,
     success: function (resp) {
       console.log(resp);
+      if (resp == 1) {
+        descargar();
+      }
     },
   });
 });
+
+function descargar() {
+  const contenedorBtn = document.querySelector('.descarga-archivo');
+  const btnDescargar = document.createElement('a');
+
+  console.log(document.querySelector('#btn-descarga'));
+
+  if (document.querySelector('#btn-descarga') == null) {
+    btnDescargar.id = 'btn-descarga';
+    btnDescargar.classList.add('btn', 'btn-success', 'btn-descargar');
+    btnDescargar.textContent = 'DESCARGAR';
+    btnDescargar.download = 'CodigosQR.zip';
+    btnDescargar.href = './CodigosQR.zip';
+
+    contenedorBtn.appendChild(btnDescargar);
+  }
+}
