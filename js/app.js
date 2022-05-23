@@ -16,7 +16,6 @@ formQR.addEventListener('submit', function (e) {
     contentType: false,
     processData: false,
     success: function (resp) {
-      console.log(resp);
       if (resp == 1) {
         descargar();
       }
@@ -27,8 +26,6 @@ formQR.addEventListener('submit', function (e) {
 function descargar() {
   const contenedorBtn = document.querySelector('.descarga-archivo');
   const btnDescargar = document.createElement('a');
-
-  console.log(document.querySelector('#btn-descarga'));
 
   if (document.querySelector('#btn-descarga') == null) {
     btnDescargar.id = 'btn-descarga';
