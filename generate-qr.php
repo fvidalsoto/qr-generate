@@ -34,6 +34,11 @@ for ($row = 2; $row <= $highestRow; $row++) {
     $codigo = $sheet->getCell("A" . $row)->getValue();
     $nombre_recorrido = $sheet->getCell("B" . $row)->getValue();
 
+    //Usar expresion regular --> https://www.php.net/manual/es/function.preg-replace.php
+
+    $codigo = str_replace('/', '-', $codigo);
+    $nombre_recorrido = str_replace('/', '-', $nombre_recorrido);
+
     $dir = 'qr-codes/' . $nombre_recorrido . '/';
 
     //Si no existe la carpeta la creamos
