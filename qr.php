@@ -5,12 +5,11 @@
     <div class="card mt-5">
         <div class="card-body">
             <form action="" method="post" id="form-qr">
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Subir archivo (excel)</label>
+                <label for="formFile" class="form-label">Subir archivo (excel)</label>
+                <div class="grid-files">
                     <input class="form-control" type="file" name="file_points" id="file_points" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
-                    <a class="btn btn-info mt-3" href="./Template.xlsx" download="Template.xlsx">Template Puntos &nbsp; <span class="oi" data-glyph="data-transfer-download"></span></a>
+                    <a class="btn btn-info btn-template" href="./Template.xlsx" download="Template.xlsx">Template Puntos &nbsp; <span class="oi" data-glyph="data-transfer-download"></span></a>
                 </div>
-
                 <div class="grid-opciones">
                     <div class="opcion">
                         <label for="level">Calidad:</label>

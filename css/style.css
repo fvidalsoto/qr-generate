@@ -69,6 +69,18 @@ input:focus {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.grid-files {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-template {
+  max-height: 2.5rem;
+}
+
 .btn-generar {
   display: flex;
   margin: 1.5rem auto 0 auto;

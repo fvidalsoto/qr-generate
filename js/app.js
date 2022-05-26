@@ -32,7 +32,6 @@ formQR.addEventListener('submit', function (e) {
       //Agregar spinner
     },
     success: function (resp) {
-      console.log(resp);
       if (resp == 1) {
         //Si el btn  tiene la clase, la saca
         spinner.classList.toggle('d-none');
