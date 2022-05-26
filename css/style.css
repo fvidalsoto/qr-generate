@@ -73,6 +73,9 @@ input:focus {
   margin: 1.5rem auto 0 auto;
   padding-inline: 3rem;
   text-transform: uppercase;
+  max-width: 11rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* SPINNER */

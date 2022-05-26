@@ -7,7 +7,6 @@ include "./library/phpqrcode/phpqrcode.php";
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-
 $archivo = $_FILES['file_points']['tmp_name'];
 
 $spreadsheet = new Spreadsheet();
@@ -32,11 +31,11 @@ if (!file_exists($dir))
 for ($row = 2; $row <= $highestRow; $row++) {
 
     $codigo = $sheet->getCell("A" . $row)->getValue();
-    $nombre_recorrido = $sheet->getCell("B" . $row)->getValue();
+    $orden = $sheet->getCell("B" . $row)->getValue();;
+    $nombre_recorrido = $sheet->getCell("C" . $row)->getValue();
 
     //Usar expresion regular --> https://www.php.net/manual/es/function.preg-replace.php
-
-    $codigo = str_replace('/', '-', $codigo);
+    $codigo_formated = str_replace('/', '-', $codigo);
     $nombre_recorrido = str_replace('/', '-', $nombre_recorrido);
 
     $dir = 'qr-codes/' . $nombre_recorrido . '/';
@@ -46,12 +45,11 @@ for ($row = 2; $row <= $highestRow; $row++) {
         mkdir($dir);
 
     //Declaramos la ruta y nombre del archivo a generar
-    $filename = $dir . $codigo . ' - ' . $nombre_recorrido . '.png';
+    $filename = $dir . $orden . '. ' . $codigo_formated . ' - ' . $nombre_recorrido . '.png';
 
     //Enviamos los parámetros a la Función para generar código QR 
     QRcode::png($codigo, $filename, $level, $tamaño, $framSize);
 }
-
 
 //Creamos el archivo
 $zip = new \ZipArchive();
