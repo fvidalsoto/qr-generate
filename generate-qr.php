@@ -7,7 +7,6 @@ include "./library/phpqrcode/phpqrcode.php";
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-
 $archivo = $_FILES['file_points']['tmp_name'];
 
 $spreadsheet = new Spreadsheet();
@@ -32,21 +31,30 @@ if (!file_exists($dir))
 for ($row = 2; $row <= $highestRow; $row++) {
 
     $codigo = $sheet->getCell("A" . $row)->getValue();
-    $nombre_recorrido = $sheet->getCell("B" . $row)->getValue();
+    $orden = $sheet->getCell("B" . $row)->getValue();;
+    $nombre_recorrido = $sheet->getCell("C" . $row)->getValue();
 
-    $dir = 'qr-codes/' . $nombre_recorrido . '/';
+    if ($codigo != '' && $orden != '' && $nombre_recorrido != '') {
 
-    //Si no existe la carpeta la creamos
-    if (!file_exists($dir))
-        mkdir($dir);
+        //Usar expresion regular --> https://www.php.net/manual/es/function.preg-replace.php
+        $codigo_formated = str_replace('/', '-', $codigo);
+        $nombre_recorrido = str_replace('/', '-', $nombre_recorrido);
 
-    //Declaramos la ruta y nombre del archivo a generar
-    $filename = $dir . $codigo . ' - ' . $nombre_recorrido . '.png';
+        $dir = 'qr-codes/' . $nombre_recorrido . '/';
 
-    //Enviamos los parámetros a la Función para generar código QR 
-    QRcode::png($codigo, $filename, $level, $tamaño, $framSize);
+        //Si no existe la carpeta la creamos
+        if (!file_exists($dir))
+            mkdir($dir);
+
+        //Declaramos la ruta y nombre del archivo a generar
+        $filename = $dir . $orden . '. ' . $codigo_formated . ' - ' . $nombre_recorrido . '.png';
+
+        //Enviamos los parámetros a la Función para generar código QR 
+        QRcode::png($codigo, $filename, $level, $tamaño, $framSize);
+    } else {
+        die("2");
+    }
 }
-
 
 //Creamos el archivo
 $zip = new \ZipArchive();
@@ -75,5 +83,12 @@ foreach ($files as $name => $file) {
 
 //Se cierra el Zip
 $zip->close();
+
+$files = glob('qr-codes/*/*'); //obtenemos todos los nombres de las imagnes
+foreach ($files as $file) {
+    if (is_file($file))
+        unlink($file); //elimino la img
+}
+//elimino el directorio que ya he vaciado
 
 echo 1;
