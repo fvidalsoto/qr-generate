@@ -1,12 +1,14 @@
-<div class="container qr-container">
-    <h1 class="text-center pt-3">Generador Código QR</h1>
+<section class="container qr-container" id="section-qr">
+    <header>
+        <h1 class="text-center pt-3">Generador Códigos QR</h1>
+    </header>
     <div class="card mt-5">
         <div class="card-body">
             <form action="" method="post" id="form-qr">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Subir archivo (excel)</label>
                     <input class="form-control" type="file" name="file_points" id="file_points" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
-                    <a class="btn btn-success mt-3" href="./Template.xlsx" download="Template.xlsx">Template Puntos &nbsp; <span class="oi" data-glyph="data-transfer-download"></span></a>
+                    <a class="btn btn-info mt-3" href="./Template.xlsx" download="Template.xlsx">Template Puntos &nbsp; <span class="oi" data-glyph="data-transfer-download"></span></a>
                 </div>
 
                 <div class="grid-opciones">
@@ -60,9 +62,11 @@
                         <div class="sk-circle12 sk-circle"></div>
                     </div>
                 </div>
+                <span class="oi oi-check d-none icono-check my-4"></span>
+                <span class="oi oi-circle-x d-none icono-error my-4"></span>
                 <div class="descarga-archivo d-flex justify-content-center align-items-center">
                 </div>
             </form>
         </div>
     </div>
-</div>
+</section>

@@ -34,21 +34,26 @@ for ($row = 2; $row <= $highestRow; $row++) {
     $orden = $sheet->getCell("B" . $row)->getValue();;
     $nombre_recorrido = $sheet->getCell("C" . $row)->getValue();
 
-    //Usar expresion regular --> https://www.php.net/manual/es/function.preg-replace.php
-    $codigo_formated = str_replace('/', '-', $codigo);
-    $nombre_recorrido = str_replace('/', '-', $nombre_recorrido);
+    if ($codigo != '' && $orden != '' && $nombre_recorrido != '') {
 
-    $dir = 'qr-codes/' . $nombre_recorrido . '/';
+        //Usar expresion regular --> https://www.php.net/manual/es/function.preg-replace.php
+        $codigo_formated = str_replace('/', '-', $codigo);
+        $nombre_recorrido = str_replace('/', '-', $nombre_recorrido);
 
-    //Si no existe la carpeta la creamos
-    if (!file_exists($dir))
-        mkdir($dir);
+        $dir = 'qr-codes/' . $nombre_recorrido . '/';
 
-    //Declaramos la ruta y nombre del archivo a generar
-    $filename = $dir . $orden . '. ' . $codigo_formated . ' - ' . $nombre_recorrido . '.png';
+        //Si no existe la carpeta la creamos
+        if (!file_exists($dir))
+            mkdir($dir);
 
-    //Enviamos los parámetros a la Función para generar código QR 
-    QRcode::png($codigo, $filename, $level, $tamaño, $framSize);
+        //Declaramos la ruta y nombre del archivo a generar
+        $filename = $dir . $orden . '. ' . $codigo_formated . ' - ' . $nombre_recorrido . '.png';
+
+        //Enviamos los parámetros a la Función para generar código QR 
+        QRcode::png($codigo, $filename, $level, $tamaño, $framSize);
+    } else {
+        die("2");
+    }
 }
 
 //Creamos el archivo
@@ -78,5 +83,12 @@ foreach ($files as $name => $file) {
 
 //Se cierra el Zip
 $zip->close();
+
+$files = glob('qr-codes/*/*'); //obtenemos todos los nombres de las imagnes
+foreach ($files as $file) {
+    if (is_file($file))
+        unlink($file); //elimino la img
+}
+//elimino el directorio que ya he vaciado
 
 echo 1;
