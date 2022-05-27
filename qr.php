@@ -1,6 +1,6 @@
 <section class="container qr-container" id="section-qr">
     <header>
-        <h1 class="text-center pt-3">Generador Códigos QR</h1>
+        <h1 class="text-center pt-5">Generador Códigos QR</h1>
     </header>
     <div class="card mt-5">
         <div class="card-body">
