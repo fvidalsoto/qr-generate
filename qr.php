@@ -32,7 +32,7 @@
                             <option selected value="10">10</option>
                         </select>
                     </div>
-                    <div class="opcion">
+                    <!--   <div class="opcion">
                         <label for="framSize">Borde: </label>
                         <select class="form-select" aria-label="Default select example" name="framSize" required>
                             <option selected disabled>--Seleccionar--</option>
@@ -42,7 +42,7 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
                 <input class="btn btn-primary btn-generar" type="submit" id="btn-generar" value="Generar">
                 <div class="cont-spinner d-none" id="spinner">
